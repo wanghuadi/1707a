@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bw.mapper.GoodsMapper">
+
+	<!-- 查询种类 -->
+	<select id="queryGoodskindAll" resultType="com.bw.entity.Goodskind">
+		select * from tb_goodskind
+	</select>
+	<!-- 查询品牌 -->
+	<select id="queryBrandAll" resultType="com.bw.entity.Brand">
+		select * from tb_brand
+	</select>
+	
+	<insert id="addGoods" parameterType="com.bw.entity.Goods">
+		INSERT INTO tb_goods 
+		(gname, gname2, bid, gsid, size, price, num, label, gimg) 
+		VALUES 
+		(#{gname}, #{gname2},#{bid} , #{gsid}, #{size}, #{price},#{num} , #{label},#{gimg})
+	</insert>
+	
+	<select id="queryGoods" resultType="com.bw.entity.Goods">
+		select * from tb_goods g,tb_brand b,tb_goodskind gs where g.bid = b.bid and g.gsid = gs.gsid
+	</select>
+	
+</mapper>

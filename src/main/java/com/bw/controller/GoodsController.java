@@ -38,7 +38,8 @@ public class GoodsController {
 		//查询所有的种类
 		List<Goodskind> kindList = goodsService.queryGoodskindAll();
 		
-		
+		//多条件查询xxxxxxxxxx
+		System.out.println();
 		map.put("brandList", brandList);
 		map.put("kindList", kindList);
 		
